@@ -14,6 +14,12 @@ def main():
     s_key = generat_glob_key()                                       # 配下検索用のglobキー生成
     webp_list = glob.glob(s_key,recursive=True)                      # globで一致する.webpリストを取得
 
+    # .webpがない場合
+    if len(webp_list) == 0:
+        str_logline = 'E:.webpがありません'
+        w_log(flog,str_logline)
+        return
+
     # リストを処理
     for img_file in webp_list:
 
